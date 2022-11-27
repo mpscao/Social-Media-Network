@@ -1,6 +1,4 @@
-# Do not change this module.
-# No comment is required.
-# This module is adapted from https://python.plainenglish.io/create-a-network-graph-in-python-8829e0ec6741
+
 import networkx as nx
 import plotly.graph_objs as go
 
