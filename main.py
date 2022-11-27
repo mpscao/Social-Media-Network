@@ -437,8 +437,8 @@ def save_changes(profile_list: List[Member]) -> None:
             if int(member.member_id) < friend:
                 # each line starting from the 2nd line being added to the output
                 current.append(str(member.member_id) + " " + str(friend) + "\n")
-    # add all of the combination of friends to the first line, which is the number of members
-    first_line += "\n" + "".join(current)
+    # add all of the combination of friends to the first line, which friends ordered by idd
+    first_line += "\n" + "".join(sorted(current))
     # write the new output file
     output_save.write(first_line)
     # close the file
