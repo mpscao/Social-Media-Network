@@ -1,15 +1,3 @@
-# TODO Provide comments for *ALL* lines, including the already provided ones.
-# TODO Type your comments above the lines.
-# TODO Replace all "pass" with proper code.
-# NAME: <Darren Cao>
-# ID: <2489322953>
-# DATE: 2022-11-24
-# DESCRIPTION: <Code that will have a menu with 9 options. The user is able to select one of the options in order
-#               to either find information of a member of the network, find number of friends a member has, see the
-#               list of friends a member has, find recommended friends for a member, search for members by country,
-#               add a friend to a member, remove a friend from a member, show the network graph of friends, and save
-#               changes to files>
-
 
 from Graph import *
 from typing import IO, Tuple, List
@@ -75,14 +63,13 @@ class Member:
         return self.first_name + " " + self.last_name
 
 def open_file(file_type: str) -> IO:
-    # ask the user to enter a filename that is a string
-    #file_name = input("Enter the " + file_type + " filename:\n")
-    # TODO To save time, comment out the above line and uncomment the following section.
-    # TODO Do not forget to return it back before submitting.
-    if file_type == "profile":
-       file_name = "profile_10.csv"
-    else:
-       file_name = "connection_10.txt"
+    
+    file_name = input("Enter the " + file_type + " filename:\n")
+    # TODO To save time, comment out the above line and uncomment the following section
+    # if file_type == "profile":
+    #   file_name = "profile_10.csv"
+    #else:
+    #  file_name = "connection_10.txt"
     # file is not changeable
     file_pointer = None
     while file_pointer is None:
@@ -360,7 +347,7 @@ def search(profile_list: List[Member]) -> None:
         print("No member comes from the country you entered. Please check for typos and try again.")
 
 
-# Do not change.
+
 def add_friends_to_profiles(profile_list: List[Member],
                             network: List[List[int]]) -> None:
     for i in range(len(profile_list)):
@@ -459,7 +446,7 @@ def save_changes(profile_list: List[Member]) -> None:
     print("All changes are saved in " + file_save)
 
 
-# Do not change
+
 def initialization() -> Tuple[List[Member], List[List[int]], List[List[int]]]:
     # open the profile file
     profile_fp = open_file("profile")
@@ -480,7 +467,6 @@ def initialization() -> Tuple[List[Member], List[List[int]], List[List[int]]]:
 
     return profile_list, network, similarity_matrix
 
-#  Do not change.
 def main():
     print("Welcome to the network program.")
     print("We need two data files.")
