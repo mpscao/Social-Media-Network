@@ -427,22 +427,20 @@ def save_changes(profile_list: List[Member]) -> None:
     # handler to open the output file and to write it
     output_save = open(file_save, "w")
     # the first line will be the number of members
-    first_line = str(len(profile_list))
-    # create an empty list current that will contain the network of friends
-    current = []
-    for member in profile_list:
-        # for each friend in the list of friend id's of each member
+    output_save.write(str(len(profile_list)) + "\n")
+    for i in range(len(profile_list)):
+        # get each member from the network of profiles
+        member = profile_list[i]
+        # get all the friends for each member
         for friend in member.friends_id_list:
-            # to avoid repeating friend combinations
+            #to avoid repeating friend combintions
             if int(member.member_id) < friend:
                 # each line starting from the 2nd line being added to the output
-                current.append(str(member.member_id) + " " + str(friend) + "\n")
-    # add all of the combination of friends to the first line, which friends ordered by idd
-    first_line += "\n" + "".join(sorted(current))
-    # write the new output file
-    output_save.write(first_line)
+                line = str(member.member_id) + " " + str(friend) + "\n"
+                # write the line of the file
+                output_save.write(line)
     # close the file
-    output_save.close
+    output_save.close()
     print("All changes are saved in " + file_save)
 
 
